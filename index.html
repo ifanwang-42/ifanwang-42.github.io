@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>王翊帆 #42 — Corolla Cup 2025</title>
+  <style>
+    :root{--maxw:900px;--accent:#d33;}
+    body{
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Noto Sans,Arial;
+      margin:0; padding:24px; background:#f7f7f9; color:#111;
+      display:flex; align-items:flex-start; justify-content:center;
+    }
+    .wrap{max-width:var(--maxw); width:100%; background:white; border-radius:12px; box-shadow:0 6px 28px rgba(0,0,0,0.08); padding:24px;}
+    header{display:flex; gap:16px; align-items:center;}
+    .badge{background:var(--accent); color:#fff; font-weight:700; padding:6px 10px; border-radius:8px;}
+    h1{margin:0; font-size:20px;}
+    p {line-height:1.5; margin:12px 0;}
+    .meta{font-size:14px; color:#555;}
+    /* responsive video wrapper (preserve ratio) */
+    .video-wrap{position:relative; padding-top:56.25%; margin-top:18px; border-radius:8px; overflow:hidden; background:#000;}
+    .video-wrap iframe,
+    .video-wrap video{position:absolute; top:0; left:0; width:100%; height:100%; border:0; object-fit:cover;}
+    .controls {display:flex; gap:8px; margin-top:12px;}
+    a.btn{background:var(--accent); color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600;}
+    footer{font-size:13px; color:#777; margin-top:18px;}
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <header>
+      <div class="badge">#42</div>
+      <div>
+        <h1>王翊帆 — Corolla Cup 參賽選手</h1>
+        <div class="meta">31 歲 • 軟體工程師 • 汽車與賽道愛好者</div>
+      </div>
+    </header>
+
+    <section aria-labelledby="intro">
+      <p id="intro">
+        我是王翊帆，今年 31 歲，目前是一名軟體工程師。汽車和賽道一直是我生活中的熱情來源。雖然平時工作讓我習慣用理性思考每個選擇，但對賽車的熱愛始終在心裡悄悄燃燒。今年很幸運成為和泰 Corolla Cup 統規賽 12 名參賽選手之一。
+      </p>
+
+      <h3>關於我與參賽動機</h3>
+      <p>
+        身為工程師，我習慣用理性分析每一個選擇，但對賽車的熱情卻讓我願意勇敢一次。這次入選 Corolla Cup 是我人生的重要轉捩點。雖然要面對參賽費用與生活壓力，但我相信夢想不該只用價值衡量。我希望透過參賽證明平凡人也能在賽道上發光，並鼓勵更多人勇敢追夢。
+      </p>
+    </section>
+
+    <!-- 兩種影片選項： (A) 自己放 MP4 ，(B) YouTube 嵌入。請擇一啟用或都留著供替換 -->
+    <section aria-labelledby="video">
+      <h3 id="video">自我介紹影片</h3>
+
+      <!-- Option A: 本地 / repo 放的 MP4 檔案 -->
+      <!-- 上傳影片至 repo（例如：assets/intro.mp4），然後把下面的 <video> 打開使用 -->
+      <!-- attributes: autoplay muted loop playsinline preload="metadata" -->
+      <!-- 注意：瀏覽器通常只允許 muted autoplay。 -->
+      <div class="video-wrap">
+        <!-- 如果你用 repo 的 raw URL，請把 src 改成你的 raw link -->
+        <video id="myVideo" autoplay muted loop playsinline preload="metadata" poster="assets/poster.jpg">
+          <source src="assets/intro.mp4" type="video/mp4">
+          你的瀏覽器不支援影片播放，請改用其他瀏覽器或連結觀看。
+        </video>
+      </div>
+
+      <!-- Option B: YouTube 嵌入（把 YOUTUBE_VIDEO_ID 換成你的影片 ID） -->
+      <!-- 建議使用響應式 iframe 包覆法（下方用相同 .video-wrap） -->
+      <!--
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/YOUTUBE_VIDEO_ID?rel=0&showinfo=0"
+          title="王翊帆 自我介紹"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      -->
+
+      <div class="controls">
+        <a class="btn" href="#video" onclick="toggleMute()">切換靜音 / 播放</a>
+        <a class="btn" href="https://github.com/你的帳號/你的repo" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>Corolla Cup 2025 參賽選手 — 王翊帆（#42）</div>
+      <div style="margin-top:6px;">想我幫你把影片上傳到 repo 或把頁面部署到 GitHub Pages 嗎？我可以一步步教你。</div>
+    </footer>
+  </main>
+
+  <script>
+    // 小工具：切換靜音 / 播放（如果使用 <video>）
+    function toggleMute(){
+      const v = document.getElementById('myVideo');
+      if(!v) return alert('找不到影片元素（如果你使用的是 YouTube iframe，請啟用你要使用的區塊）。');
+      v.muted = !v.muted;
+      if(v.paused) v.play(); else v.play();
+      alert('影片靜音狀態: ' + (v.muted ? '靜音' : '有聲'));
+    }
+  </script>
+</body>
+</html>
+
