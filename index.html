@@ -1,73 +1,838 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>王翊帆 #42 — Corolla Cup 2025</title>
-  <style>
-    :root{--maxw:900px;--accent:#d33;}
-    body{
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Noto Sans,Arial;
-      margin:0; padding:24px; background:#333; color:#eee;
-      display:flex; align-items:flex-start; justify-content:center;
-    }
-    .wrap{max-width:var(--maxw); width:100%; background:#444; border-radius:12px;
-          box-shadow:0 6px 28px rgba(0,0,0,0.5); padding:24px;}
-    header{display:flex; gap:16px; align-items:center;}
-    .badge{background:var(--accent); color:#fff; font-weight:700; padding:6px 10px; border-radius:8px;}
-    h1{margin:0; font-size:20px; color:#fff;}
-    p, .meta { line-height:1.5; margin:12px 0; }
-    .meta { font-size:14px; color:#ccc; }
-    .video-wrap { position:relative; padding-top:56.25%; margin-top:18px; border-radius:8px; overflow:hidden; background:#000; }
-    .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
-    .controls { display:flex; gap:8px; margin-top:12px; }
-    a.btn{background:var(--accent); color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600;}
-    footer{font-size:13px; color:#bbb; margin-top:18px;}
-    .contact a { color:#89CFF0; text-decoration:underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFan #42 | Corolla Cup 2025 參賽選手</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang TC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #f6efd2;
+            background: #000000;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 導航選單 */
+        .nav-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 12px 20px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .nav-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 20px;
+            backdrop-filter: blur(15px);
+            display: none;
+            z-index: 999;
+            min-width: 200px;
+        }
+
+        .nav-menu.active {
+            display: block;
+            animation: fadeInDown 0.3s ease;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: #f6efd2;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu a:hover {
+            color: #e43636;
+            transform: translateX(5px);
+        }
+
+        /* 主標題區 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="2" height="2" patternUnits="userSpaceOnUse"><path d="M 2 0 L 0 0 0 2" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 100;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .hero .subheading {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .hero .tagline {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            margin-bottom: 60px;
+        }
+
+        /* 社群圖標 */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: #f6efd2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .social-icon:hover {
+            border-color: #e43636;
+            color: #e43636;
+            transform: translateY(-3px);
+        }
+
+        /* 內容區塊 */
+        .main-content {
+            background: #000000;
+        }
+
+        .section {
+            padding: 100px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 4rem);
+            font-weight: 100;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: #f6efd2;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0;
+            padding: 40px;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .expand-btn {
+            background: transparent;
+            color: #f6efd2;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .expand-btn:hover {
+            background: #f6efd2;
+            color: #000000;
+        }
+
+        .expanded-content {
+            display: none;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .expanded-content.active {
+            display: block;
+        }
+
+        /* 比賽資訊 */
+        .race-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .race-category {
+            margin: 60px 0 30px 0;
+        }
+
+        .race-category h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f6efd2;
+            border-left: 3px solid #e43636;
+            padding-left: 20px;
+        }
+
+        .race-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .race-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .race-date {
+            font-weight: 300;
+            color: #e43636;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .race-name {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .race-location {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .race-result {
+            background: #e43636;
+            color: #f6efd2;
+            padding: 6px 15px;
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* 分享文章 */
+        .share-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .share-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .share-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .share-card.expanded-single {
+            grid-column: 1 / -1;
+            z-index: 2;
+            box-shadow: 0 0 40px 0 rgba(0,0,0,0.3);
+        }
+
+        .share-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #f6efd2;
+        }
+
+        .share-excerpt {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .share-date {
+            color: #e43636;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 贊助商區域 */
+        .sponsors {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sponsors h2 {
+            font-size: 2rem;
+            font-weight: 100;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            color: #f6efd2;
+        }
+
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .sponsor-logo {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sponsor-logo:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .sponsor-logo img {
+            max-width: 100%;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        /* 動畫效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                letter-spacing: 4px;
+            }
+
+            .hero .subtitle {
+                letter-spacing: 2px;
+            }
+
+            .section-title {
+                letter-spacing: 2px;
+            }
+
+            .race-grid,
+            .share-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-icons {
+                gap: 20px;
+            }
+
+            .sponsor-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* 載入動畫 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-wrap {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <main class="wrap" role="main">
-    <header>
-      <div class="badge">#42</div>
-      <div>
-        <h1>王翊帆 — Corolla Cup 參賽選手</h1>
-        <div class="meta">31 歲 • 軟體工程師 • 汽車與賽道愛好者</div>
-      </div>
-    </header>
+    <!-- 導航選單 -->
+    <button class="nav-toggle" id="navToggle">Menu</button>
+    <nav class="nav-menu" id="navMenu">
+        <a href="#intro" onclick="scrollToSection('intro')">About</a>
+        <a href="#races" onclick="scrollToSection('races')">Racing</a>
+        <a href="#shares" onclick="scrollToSection('shares')">Stories</a>
+        <a href="#sponsor" onclick="scrollToSection('sponsor')">Partnership</a>
+    </nav>
 
-    <section aria-labelledby="intro">
-      <p id="intro">
-        我是王翊帆，今年 31 歲，目前是一名軟體工程師。汽車和賽道一直是我生活中的熱情來源。雖然平時工作讓我習慣用理性思考每個選擇，但對賽車的熱愛始終在心裡悄悄燃燒。今年很幸運成為和泰 Corolla Cup 統規賽 12 名參賽選手之一。
-      </p>
-      <h3>關於我與參賽動機</h3>
-      <p>
-        身為工程師，我習慣用理性分析每一個選擇，但對賽車的熱情卻讓我願意勇敢一次。這次入選 Corolla Cup 是我人生的重要轉捩點。雖然要面對參賽費用與生活壓力，但我相信夢想不該只用價值衡量。我希望透過參賽證明平凡人也能在賽道上發光，並鼓勵更多人勇敢追夢。
-      </p>
-    </section>
+    <!-- 主標題區 -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>iFan #42</h1>
+            <div class="subtitle">王翊帆 | TGR Corolla Cup 2025 #42 參賽選手</div>
+            <div class="subheading">Software Engineer | Amateur Driver</div>
+            <div class="tagline">追求極速的夢想，永不停歇的挑戰</div>
+            <!-- 社群圖標 -->
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@iFan42" class="social-icon" target="_blank" title="YouTube">
+                    <img src="assets/icons/yt_icon_red_digital.png" alt="YouTube" style="width:32px; height:32px;">
+                </a>
+                <a href="https://www.instagram.com/i_fan.wang" class="social-icon" target="_blank" title="Instagram">
+                    <img src="assets/icons/Instagram_Glyph_Gradient.svg" alt="Instagram" style="width:28px; height:28px;">
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <section aria-labelledby="videos">
-      <h3 id="videos">Corolla Cup 極速對決</h3>
+    <div class="main-content">
+        <!-- 自我介紹 -->
+        <section class="section fade-in" id="intro">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <div class="content-card">
+                    <div class="basic-content">
+                        <p>目前是一名軟體工程師。汽車和賽道一直是我生活中的熱情來源。</p>
+                        <p>雖然平時工作讓我習慣用理性思考每個選擇，但對賽車的熱愛始終在心裡悄悄燃燒。</p>
+                        <p>今年很幸運成為和泰 Corolla Cup 統規賽 12 名參賽選手之一。</p>
+                        <button class="expand-btn" onclick="toggleContent(this)">Read More</button>
+                    </div>
+                    <div class="expanded-content">
 
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/PEg_Ou5htJI" title="Corolla Cup 極速對決 EP9 賽道方程式" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/Y1ilDIx59_0" title="Corolla Cup 極速對決 EP10 賽道方程式" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </section>
+                        <h3>關於我</h3>
+                        <p>我是王翊帆，今年 31 歲，目前是一名軟體工程師。汽車和賽道一直是我生活中的熱情來源。</p>
+                        <p>雖然平時工作讓我習慣用理性思考每個選擇，但對賽車的熱愛始終在心裡悄悄燃燒。</p>
+                        <p>今年很幸運成為和泰 Corolla Cup 統規賽 12 名參賽選手之一。</p>
 
-    <section class="contact" aria-labelledby="contact">
-      <h3 id="contact">聯絡方式</h3>
-      <p>Email: <a href="mailto:ifan.wang.1017@gmail.com">ifan.wang.1017@gmail.com</a></p>
-      <p>Instagram: <a href="https://www.instagram.com/i_fan.wang/" target="_blank" rel="noopener">i_fan.wang</a></p>
-      <p>YouTube 頻道: <a href="https://www.youtube.com/@iFan42" target="_blank" rel="noopener">iFan42</a></p>
-    </section>
+                        <h3>參賽動機</h3>
+                        <p>身為工程師，我習慣用理性分析每一個選擇，但對賽車的熱情卻讓我願意勇敢一次。</p>
+                        <p>這次入選 Corolla Cup 是我人生的重要轉捩點。雖然要面對參賽費用與生活壓力，但我相信夢想不該只用價值衡量。</p>
+                        <p>我希望透過參賽證明平凡人也能在賽道上發光，並鼓勵更多人勇敢追夢。</p>
 
-    <footer>
-      <div>Corolla Cup 2025 參賽選手 — 王翊帆（#42）</div>
-    </footer>
-  </main>
+                        <h3 id="videos">Corolla Cup 極速對決我的部分</h3>
+                        <div class="video-wrap">
+                            <iframe src="https://www.youtube.com/embed/PEg_Ou5htJI" title="Corolla Cup 極速對決 EP9 賽道方程式" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-wrap">
+                            <iframe src="https://www.youtube.com/embed/Y1ilDIx59_0" title="Corolla Cup 極速對決 EP10 賽道方程式" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+
+                        <button class="expand-btn" onclick="toggleContent(this)">Show Less</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 賽事行程 -->
+        <section class="section fade-in" id="races">
+            <div class="container">
+                <h2 class="section-title">Racing</h2>
+                
+                <div class="race-category">
+                    <h3>Upcoming Races</h3>
+                    <div class="race-grid" id="upcomingRaces">
+                        <div class="loading-message">Loading races data...</div>
+                    </div>
+                </div>
+
+                <div class="race-category">
+                    <h3>Past Results</h3>
+                    <div class="race-grid" id="pastRaces">
+                        <div class="loading-message">Loading race results...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分享專區 -->
+        <section class="section fade-in" id="shares">
+            <div class="container">
+                <h2 class="section-title">Stories</h2>
+                <div class="share-grid" id="shareGrid">
+                    <div class="loading-message">Loading stories...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 贊助合作 -->
+        <section class="section fade-in" id="sponsor">
+            <div class="container">
+                <h2 class="section-title">Partnership</h2>
+                <div class="content-card">
+                    <h3 style="font-size: 1.5rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Join Our Journey</h3>
+                    <p>我正在尋找志同道合的贊助夥伴，共同在賽車運動中創造佳績。如果您對賽車運動有熱忱，或希望透過賽車平台推廣品牌，歡迎與我聯繫討論合作機會。</p>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 30px; margin: 30px 0; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <h4 style="font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">Contact</h4>
+                        <a href="mailto:ifan.wang.1017@gmail.com" style="color: #e43636; font-size: 1.1em; text-decoration: none; letter-spacing: 1px;">
+                            ifan.wang.1017@gmail.com
+                        </a>
+                    </div>
+
+                    <p style="font-size: 0.9em; color: rgba(255, 255, 255, 0.692);">
+                        我相信透過專業的賽車表現和積極的社群經營，能為贊助夥伴帶來良好的品牌曝光效益。期待與您的合作！
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 贊助商區域 -->
+    <div class="sponsors">
+        <div class="container">
+            <h2>Partners</h2>
+            <div class="sponsor-grid" id="sponsorGrid">
+                <a href="https://sponsor1.com" class="sponsor-logo" target="_blank">
+                    <span style="color: rgba(255,255,255,0.5); font-size: 0.9em;">SPONSOR LOGO</span>
+                </a>
+                <a href="https://sponsor2.com" class="sponsor-logo" target="_blank">
+                    <span style="color: rgba(255,255,255,0.5); font-size: 0.9em;">SPONSOR LOGO</span>
+                </a>
+                <a href="https://sponsor3.com" class="sponsor-logo" target="_blank">
+                    <span style="color: rgba(255,255,255,0.5); font-size: 0.9em;">SPONSOR LOGO</span>
+                </a>
+                <a href="https://sponsor4.com" class="sponsor-logo" target="_blank">
+                    <span style="color: rgba(255,255,255,0.5); font-size: 0.9em;">SPONSOR LOGO</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // 導航選單切換
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        });
+
+        // 點擊其他地方關閉選單
+        document.addEventListener('click', function(e) {
+            const toggle = document.getElementById('navToggle');
+            const menu = document.getElementById('navMenu');
+            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // 滾動到指定區塊
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+            document.getElementById('navMenu').classList.remove('active');
+        }
+
+        // 展開/收合內容
+        function toggleContent(button) {
+            // 支援 race-card 結構
+            const card = button.closest('.race-card, .content-card');
+            if (!card) return;
+            const expandedContent = card.querySelector('.expanded-content');
+            if (!expandedContent) return;
+
+            // 若有 basic-content，則切換顯示；否則只切換 expanded-content
+            const basicContent = card.querySelector('.basic-content');
+            if (expandedContent.classList.contains('active')) {
+                expandedContent.classList.remove('active');
+                if (basicContent) basicContent.style.display = 'block';
+            } else {
+                expandedContent.classList.add('active');
+                if (basicContent) basicContent.style.display = 'none';
+            }
+        }
+
+        // read race from JSON file
+        async function loadRaceData() {
+            try {
+                const response = await fetch('data/races.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const raceData = await response.json();
+
+                const today = new Date();
+                const upcomingRaces = raceData
+                    .filter(race => new Date(race.date) > today)
+                    .sort((a, b) => new Date(a.date) - new Date(b.date));
+                const pastRaces = raceData
+                    .filter(race => new Date(race.date) <= today)
+                    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                renderRaces(upcomingRaces, 'upcomingRaces', false);
+                renderRaces(pastRaces, 'pastRaces', true);
+            } catch (error) {
+                console.error('Error loading race data:', error);
+            }
+        }
+
+        function renderRaces(races, containerId, isPast) {
+            const container = document.getElementById(containerId);
+            
+            if (races.length === 0) {
+                container.innerHTML = '<div style="color: rgba(255,255,255,0.5); text-align: center; padding: 40px;">No races to display</div>';
+                return;
+            }
+
+            container.innerHTML = races.map(race => `
+                <div class="race-card">
+                    <div class="race-date">${race.date}</div>
+                    <div class="race-name">${race.name}</div>
+                    <div class="race-location">${race.location}</div>
+                    ${isPast && race.result ? `<div class="race-result">${race.result}</div>` : ''}
+                    <button class="expand-btn" onclick="toggleContent(this)">Read More</button>
+                    <div class="expanded-content">
+                        <p>${race.details}</p>
+                        ${race.link ? `<p><a href="${race.link}" style="color: #e43636;">Official Information</a></p>` : ''}
+                        ${race.video ? `<p><a href="${race.video}" style="color: #e43636;">Watch Video</a></p>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 從 markdown 檔案載入分享內容
+        async function loadShareData() {
+            try {
+                const indexRes = await fetch('stories/index.json');
+                const shareFiles = await indexRes.json(); // ["first_time_try_racing_kart.md", "discovering_new_racing_technique_from_sim_racing.md"]
+
+                const shares = await Promise.all(shareFiles.map(async (filename) => {
+                    const response = await fetch(`stories/${filename}`);
+                    const raw = await response.text();
+                    // ...YAML front matter parsing...
+                    const match = raw.match(/^---\n([\s\S]+?)\n---\n([\s\S]*)$/);
+                    let meta = {};
+                    let content = raw;
+                    if (match) {
+                        const yaml = match[1];
+                        content = match[2];
+                        yaml.split('\n').forEach(line => {
+                            const [key, ...rest] = line.split(':');
+                            if (key && rest.length) meta[key.trim()] = rest.join(':').trim();
+                        });
+                    }
+                    return {
+                        filename,
+                        title: meta.title || filename,
+                        excerpt: meta.excerpt || '',
+                        date: meta.date || '',
+                        content
+                    };
+                }));
+
+                renderShares(shares);
+            } catch (error) {
+                console.error('Error loading share data:', error);
+            }
+        }
+
+        function renderShares(shares) {
+            const container = document.getElementById('shareGrid');
+            container.innerHTML = shares.map((share, idx) => `
+            <div class="share-card">
+                <div class="share-title">${share.title}</div>
+                <div class="share-excerpt">${share.excerpt}</div>
+                <div class="share-date">${share.date}</div>
+                <button class="expand-btn" onclick="toggleShareContent(this)">Read More</button>
+                <div class="expanded-content" style="display:none;">
+                    <div class="markdown-viewer"></div>
+                    <button class="expand-btn" onclick="toggleShareContent(this)">Show Less</button>
+                </div>
+            </div>
+        `).join('');
+
+            // 將 markdown 內容渲染到 markdown-viewer
+            shares.forEach((share, idx) => {
+                const card = container.children[idx];
+                const viewer = card.querySelector('.markdown-viewer');
+                viewer.innerHTML = marked.parse(share.content);
+            });
+        }
+
+        // 展開/收合分享內容
+        function toggleShareContent(button) {
+            const card = button.closest('.share-card');
+            const expandedContent = card.querySelector('.expanded-content');
+            const readMoreBtn = card.querySelector('.expand-btn:not(.expanded-content .expand-btn)');
+            const showLessBtn = expandedContent.querySelector('.expand-btn');
+            const excerpt = card.querySelector('.share-excerpt');
+            const date = card.querySelector('.share-date');
+            const title = card.querySelector('.share-title');
+
+            const isActive = expandedContent.style.display === 'block';
+            expandedContent.style.display = isActive ? 'none' : 'block';
+            readMoreBtn.style.display = isActive ? 'inline-block' : 'none';
+            showLessBtn.style.display = isActive ? 'none' : 'inline-block';
+            if (excerpt) excerpt.style.display = isActive ? 'block' : 'none';
+            if (date) date.style.display = isActive ? 'block' : 'none';
+
+            // 展開時讓卡片佔滿整行
+            if (!isActive) {
+                card.classList.add('expanded-single');
+            } else {
+                card.classList.remove('expanded-single');
+            }
+        }
+
+        function openShareModal(filename) {
+            // 這裡可以開啟模態視窗顯示完整的 markdown 內容
+            alert(`開啟文章: ${filename}`);
+        }
+
+        // 滾動動畫
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // 頁面載入時初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRaceData();
+            loadShareData();
+            handleScrollAnimation();
+            
+            window.addEventListener('scroll', handleScrollAnimation);
+        });
+    </script>
 </body>
 </html>
-
