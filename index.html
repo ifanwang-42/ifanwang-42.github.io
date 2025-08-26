@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'unsafe-inline'; img-src data: https:; connect-src 'self' https://raw.githubusercontent.com;">
     <title>iFan #42 | Corolla Cup 2025 參賽選手</title>
     <style>
         * {
@@ -723,14 +725,16 @@
             `).join('');
         }
 
+        const GITHUB_PREFIX = 'https://raw.githubusercontent.com/ifanwang-42/ifanwang-42.github.io/refs/heads/main/';
+
         // 從 markdown 檔案載入分享內容
         async function loadShareData() {
             try {
-                const indexRes = await fetch('stories/index.json');
-                const shareFiles = await indexRes.json(); // ["first_time_try_racing_kart.md", "discovering_new_racing_technique_from_sim_racing.md"]
+                const indexRes = await fetch(GITHUB_PREFIX + 'stories/index.json');
+                const shareFiles = await indexRes.json();
 
                 const shares = await Promise.all(shareFiles.map(async (filename) => {
-                    const response = await fetch(`stories/${filename}`);
+                    const response = await fetch(GITHUB_PREFIX + 'stories/' + filename);
                     const raw = await response.text();
                     // ...YAML front matter parsing...
                     const match = raw.match(/^---\n([\s\S]+?)\n---\n([\s\S]*)$/);
